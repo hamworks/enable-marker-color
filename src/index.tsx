@@ -37,16 +37,12 @@ registerBlockExtension( `core/list`, {
 	Edit: withColors( {
 		markerColor: 'marker-color',
 	} )( Edit ),
-	order: 'after',
 } );
 
-function generateClassName( attributes: BlockAttributes ) {
-	const { markerColor } = attributes;
-	let className = '';
-	if ( markerColor ) {
-		className = `has-marker-color has-${ markerColor }-marker-color`;
-	}
-	return className;
+function generateClassName( { markerColor }: BlockAttributes ) {
+	return markerColor
+		? `has-marker-color has-${ markerColor }-marker-color`
+		: '';
 }
 
 function Edit( {
