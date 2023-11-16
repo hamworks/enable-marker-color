@@ -34,7 +34,7 @@ registerBlockExtension( `core/list`, {
 	classNameGenerator: generateClassName,
 	inlineStyleGenerator: () => ( {} ),
 	Edit: withColors( {
-		markerColor: 'src',
+		markerColor: 'marker-color',
 	} )( Edit ),
 	order: 'after',
 } );
