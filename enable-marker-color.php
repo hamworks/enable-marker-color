@@ -11,10 +11,10 @@
  * Requires at least: 6.4
  * Requires PHP: 8.0
  *
- * @package Enable_Marker_Color
+ * @package EnableMarkerColor
  */
 
-namespace Enable_Marker_Color;
+namespace EnableMarkerColor;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -80,8 +80,9 @@ class Plugin {
 		$colors = $this->get_colors();
 		$css    = '';
 		foreach ( $colors as $color ) {
-			$css .= <<<CSS
-				.has-{$color['slug']}-marker-color li::marker {
+			$selector = ".has-{$color['slug']}-marker-color";
+			$css     .= <<<CSS
+				{$selector} li::marker {
 					color: {$color['color']};
 				}
 			CSS;
