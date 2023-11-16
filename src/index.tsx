@@ -25,14 +25,15 @@ import type { BlockEditProps } from '@wordpress/blocks';
 import type { BlockAttributes, WithColorProps } from './types';
 
 registerBlockExtension( `core/list`, {
-	extensionName: 'src',
+	extensionName: 'enable-marker-color',
 	attributes: {
 		markerColor: {
 			type: 'string',
 		},
 	},
 	classNameGenerator: generateClassName,
-	inlineStyleGenerator: () => ( {} ),
+	// @ts-ignore
+	inlineStyleGenerator: undefined,
 	Edit: withColors( {
 		markerColor: 'marker-color',
 	} )( Edit ),
