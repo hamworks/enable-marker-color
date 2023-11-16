@@ -1,0 +1,48 @@
+{
+	"name": "@hamworks/enable-marker-color",
+	"author": "HAMWORKS",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"build": "wp-scripts build",
+		"format": "wp-scripts format",
+		"lint-js": "wp-scripts lint-js",
+		"lint-js:fix": "wp-scripts lint-js --fix",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start",
+		"wp-env": "wp-env",
+		"prepare": "husky install"
+	},
+	"devDependencies": {
+		"@types/wordpress__block-editor": "^11.5.7",
+		"@wordpress/env": "^8.11.0",
+		"@wordpress/scripts": "^26.16.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^15.1.0"
+	},
+	"dependencies": {
+		"@10up/block-components": "^1.17.3",
+		"@wordpress/block-editor": "^12.13.0",
+		"@wordpress/blocks": "^12.22.0",
+		"typescript": "^5.2.2"
+	},
+	"lint-staged": {
+		"*.{js,json,ts,tsx}": [
+			"npm run format"
+		],
+		"*.{js,ts,tsx}": [
+			"npm run lint-js:fix"
+		],
+		"{*.css,*.scss}": [
+			"npm run lint-css:fix"
+		],
+		"*.php": [
+			"composer format",
+			"npm run lint-php"
+		]
+	},
+	"volta": {
+		"node": "18.18.2"
+	}
+}

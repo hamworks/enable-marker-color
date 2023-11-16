@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards based custom ruleset">
+	<!-- What to scan -->
+	<ini name="error_reporting" value="E_ALL &#38; ~E_DEPRECATED" />
+
+	<file>./</file>
+	<exclude-pattern>/build/</exclude-pattern>
+	<exclude-pattern>/vendor/</exclude-pattern>
+	<exclude-pattern>node_modules</exclude-pattern>
+	<exclude-pattern>*.asset.php</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
+
+	<arg value="ps"/>
+	<arg name="basepath" value="."/>
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+
+	<!-- Rules: Check PHP version compatibility -->
+	<config name="testVersion" value="8.0-"/>
+	<config name="minimum_supported_wp_version" value="6.3"/>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar" />
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop" />
+	</rule>
+	<rule ref="PHPCompatibilityWP"/>
+</ruleset>

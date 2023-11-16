@@ -1,0 +1,35 @@
+name: Lint check and Build testing
+run-name: ${{ github.actor }} runs lint check and build testing
+on: [push]
+jobs:
+    lint-and-build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.1'
+                  extensions: mbstring, intl
+                  ini-values: post_max_size=256M, max_execution_time=180
+
+            - name: Composer install
+              run: composer install --optimize-autoloader --prefer-dist
+
+            - name: Lint php
+              run: npm run lint-php
+
+            - name: Lint js
+              run: npm run lint-js
