@@ -7,3 +7,11 @@ Add settings to the List block to change marker color.
 ## Screenshot
 
 ![](https://raw.githubusercontent.com/hamworks/enable-marker-color/main/.wordpress-org/screenshot-1.png)
+
+
+### How to build
+
+```bash
+$ npm install
+$ npm run build
+```
